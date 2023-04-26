@@ -1,0 +1,141 @@
+/* 
+    Document   : main.css
+    Created on : Apr 19, 2011, 10:14:45 PM
+*/
+
+
+body
+{
+    font-family: arial;
+    font-size: 12px;
+    margin:0;
+    background-color:#FAF8CC;
+}
+
+div#container
+{
+    margin:auto;
+    background-color: transparent;
+  background-color: #fff;
+    padding:10px 10px 0px ;
+    border-width:1px;
+    border-style:solid;
+    border-color: #aaa #aaa #777 #777 ;
+
+    -moz-border-radius: 15px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px;
+    -moz-box-shadow: 0px 8px 8px 0px #888;
+    -webkit-box-shadow: 0px 5px 5px 0px #888;
+    box-shadow: 0px 5px 5px 0px #888;
+  //-moz-border-radius: 15px;
+}
+
+div#header {
+    padding-left:10px;
+    height:60px;
+    color:#444;
+}
+
+div#headerCaption
+{
+    width:600px;
+    float:left;
+}
+
+div#headerCaption h1
+{
+    font-size:28px;
+    margin:0;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+}
+
+div#headerCaption h2
+{
+    font-size:18px;
+    margin:0;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+div#headerLogo
+{
+    width:171px;
+    height:60px;
+    float:right;
+    background-image: url('\nedlogo.png');
+}
+
+div#mainContainer
+{
+    border-bottom: 1px solid #ccc;
+}
+
+div#infoContainer p
+{
+    text-align: center;
+    padding:5px 0px 0px;
+    margin:0 0 10px 0;
+}
+
+div#menu
+{
+    text-align: center;
+    border:1px solid #777;
+    background:#ECD672;
+    width:150px;
+    padding:0px;
+    height:410px;
+}
+
+div#menu ol
+{
+    margin-left:0;
+    padding-left:3px;
+}
+
+#calculation
+{
+   margin:0;
+   padding:0px;
+   border:1px solid #777;
+   background:#ECD672;
+   height:410px;
+}
+
+#calculation table
+{
+    margin-top:6px;
+    padding-left:3px;
+    padding-right:3px;
+}
+
+td
+{
+    text-align: center;
+}
+th
+{
+    text-align: center;
+}
+.small
+{
+    margin-top:6px;
+    padding-left:3px;
+    padding-right:3px;
+    font-size:9px;
+    text-align: left;
+}
+
+div#footer
+{
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
+
+ul {
+    list-style-type: none;
+padding:0; margin:0;
+}
+li {
+list-style-type:none;
+padding-top:10px;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <link href="./El tiempo de descarga - Calcular el tiempo de descarga de archivos_files/bootstrap.min.css" rel="stylesheet">
+
+
+        
+        <title>El tiempo de descarga - Calcular el tiempo de descarga de archivos</title>
+
+        <meta name="Keywords" content="descargar,tiempo,calculado,el tiempo de descarga,ancho de banda,banda ancha,la velocidad de descarga">
+	<meta name="Description" content="Calcule el tiempo que se tarda en descargar un archivo, dependiendo del ancho de banda.. 
+              También se puede especificar su propio ritmo.">
+        <link href="./El tiempo de descarga - Calcular el tiempo de descarga de archivos_files/main.css" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" type="text/css" href="./El tiempo de descarga - Calcular el tiempo de descarga de archivos_files/cookieconsent.min.css">
+
+    <style></style><style></style></head>
+    <body><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom cc-color-override-688238583 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="http://www.google.com/intl/en/policies/privacy/partners/" rel="noopener noreferrer nofollow" target="_blank">Learn more</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+        <div id="container" class="container">
+            <div id="mainContainer" class="row">
+                <div id="headerCaption" class="col-sm-4">
+                    <h1>El tiempo de descarga</h1>
+                    <h2>Calcular el tiempo de descarga de datos.</h2>
+                <div id="headerLogo" class="col-sm-4"></div>
+	    </div>
+<div class="row" id="infoContainer">
+<div class="col-sm-12">
+</div></div>
+<div class="row" id="infoContainer">
+<div class="col-sm-12">
+
+
+<div class="col-sm-2" id="menu">
+<ul>
+                            <li>Modem - También conocido como: Acceso telefónico a Internet.</li>
+                            <li>ADSL - Una variante de DSL(Digital Subscriber Line). ADSL = Assymetric DSL.</li>
+                            <li>LAN - Local Area Network. </li>
+                            <li>Turbo 3G - La telefonía móvil de tercera generación</li>
+                            <li>4G - Cuarta generación de telefonía móvil.</li>
+                            <li>De banda ancha significa una tasa de por lo menos 256 kbit/s.</li>
+                            <li>1 byte = 8 bits.</li>
+			    </ul>
+
+</div>
+
+<div class="col-sm-6" id="calculation">
+<form name="myForm" id="myForm" action="https://www.download-time.com/es/">
+                                <table>
+                                    <tbody><tr>
+                                        <td>
+                                            Tamaño de archivo                                        </td>
+                                        <td>
+                                            <input type="text" size="10" id="datasize" title="Tamaño de archivo" placeholder="Tamaño de archivo">
+                                        </td>
+                                        <td>
+                                            <input type="radio" name="bitsize" value="1">KB
+                                            <input type="radio" name="bitsize" value="1024" checked="">MB
+                                            <input type="radio" name="bitsize" value="1048576">GB
+                                        </td>
+                                        <td>
+                                            <input type="button" value="Calcular" onclick="calc();">
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Conexión</th>
+                                            <th>Acelerar</th>
+                                            <th>El tiempo de descarga</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody><tr>
+                                        <td>Modem</td>
+                                        <td>28,8 kbit/s</td>
+                                        <td><label id="type_0">Los resultados</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Modem</td>
+                                        <td>56,6 kbit/s</td>
+                                        <td><label id="type_1">que</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>256 kbit/s</td>
+                                        <td><label id="type_2">aquí</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>512 kbit/s</td>
+                                        <td><label id="type_3">se presenta.</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>1 Mbit/s</td>
+                                        <td><label id="type_4"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>2 Mbit/s</td>
+                                        <td><label id="type_5"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>8 Mbit/s</td>
+                                        <td><label id="type_6"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ADSL</td>
+                                        <td>24 Mbit/s</td>
+                                        <td><label id="type_7"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>LAN</td>
+                                        <td>10 Mbit/s</td>
+                                        <td><label id="type_8"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>LAN</td>
+                                        <td>100 Mbit/s</td>
+                                        <td><label id="type_9"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Turbo 3G</td>
+                                        <td>7,2 Mbit/s</td>
+                                        <td><label id="type_10"></label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>4G</td>
+                                        <td>80 Mbit/s</td>
+                                        <td><label id="type_11"></label></td>
+                                    </tr>
+				    <tr>
+                                        <td>5G</td>
+                                        <td>1 Gbit/s</td>
+                                        <td><label id="type_12"></label></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Velocidad</td>
+                                        
+                                        <td><input type="text" size="6" id="own_speed" title="Velocidad" placeholder="Velocidad">
+                                            <input type="radio" name="ownspeedsize" value="1000">kbit/s
+                                            <input type="radio" name="ownspeedsize" value="1000000" checked="">Mbit/s
+                                            <input type="radio" name="ownspeedsize" value="1000000000">Gbit/s
+                                        </td>
+                                        <td><label id="own_time"></label></td>
+                                    </tr>
+                                </tbody></table>
+                            </form>
+</div>
+<script type="text/javascript" src="./El tiempo de descarga - Calcular el tiempo de descarga de archivos_files/calc.js.descargar"></script>
+</body><app-content ng-version="11.1.0"></app-content></html>
