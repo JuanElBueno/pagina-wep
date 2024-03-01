@@ -1,45 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ejemplo de tabla HTML</title>
-<style>
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: left;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div con fondo de color y texto centrado</title>
+  <style>
+    /* Estilos CSS para el div */
+    .contenido {
+      background-color: #f0f0f0; /* Color de fondo */
+      width: 300px; /* Ancho del div */
+      height: 150px; /* Altura del div */
+      margin: 0 auto; /* Centra el div horizontalmente */
+      text-align: center; /* Centra el texto horizontalmente */
+      line-height: 150px; /* Alinea verticalmente el texto */
+    }
+  </style>
 </head>
 <body>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Edad</th>
-    <th>Ciudad</th>
-  </tr>
-  <tr>
-    <td>Juan</td>
-    <td>25</td>
-    <td>Madrid</td>
-  </tr>
-  <tr>
-    <td>Maria</td>
-    <td>30</td>
-    <td>Barcelona</td>
-  </tr>
-</table>
+<div class="contenido">
+  <p>Texto centrado en el div con fondo de color</p>
+</div>
 
 </body>
 </html>
