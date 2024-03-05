@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Div con fondo de color y texto centrado</title>
-  <style>
-    /* Estilos CSS para el div */
-    .contenido {
-      background-color: #f0f0f0; /* Color de fondo */
-      width: 300px; /* Ancho del div */
-      height: 150px; /* Altura del div */
-      margin: 0 auto; /* Centra el div horizontalmente */
-      text-align: center; /* Centra el texto horizontalmente */
-      line-height: 150px; /* Alinea verticalmente el texto */
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abrir documento .docx</title>
 </head>
 <body>
 
-<div class="contenido">
-  <p>Texto centrado en el div con fondo de color</p>
-</div>
+<button onclick="abrirDocumento()">Abrir Documento</button>
+
+<script>
+function abrirDocumento() {
+    // Cambia "filename.docx" al nombre de tu archivo .docx
+    window.open("filename.docx", "_self");
+}
+</script>
 
 </body>
 </html>
