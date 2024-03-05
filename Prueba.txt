@@ -11,8 +11,11 @@
 
 <script>
 function abrirDocumento() {
-    // Cambia "filename.docx" al nombre de tu archivo .docx
-    window.open("filename.docx", "_self");
+    // URL del documento .docx
+    var urlDocumento = "https://example.com/tu_documento.docx";
+
+    // Abre el documento en Word utilizando la URL
+    window.open("https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(urlDocumento), "_blank");
 }
 </script>
 
