@@ -1,23 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abrir documento .docx</title>
-</head>
-<body>
-
-<button onclick="abrirDocumento()">Abrir Documento</button>
-
-<script>
-function abrirDocumento() {
-    // URL del documento .docx
-    var urlDocumento = "https://example.com/tu_documento.docx";
-
-    // Abre el documento en Word utilizando la URL
-    window.open("https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(urlDocumento), "_blank");
-}
-</script>
-
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/68YK_d4VyfU" frameborder="0" allowfullscreen></iframe>
+    </nav>
 </body>
 </html>
