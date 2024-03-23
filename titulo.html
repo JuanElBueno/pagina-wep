@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* Color de fondo */
+    }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff; /* Color de fondo del contenedor */
+    }
+
+    #dynamicTitle {
+      width: 100%;
+      font-size: 18px;
+      margin-bottom: 20px;
+      display: block;
+      white-space: pre-wrap;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    #titleInput {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #buttonContainer {
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4caf50; /* Color de fondo del botón */
+      color: #fff; /* Color del texto del botón */
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049; /* Cambiar color de fondo al pasar el mouse sobre el botón */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <marquee behavior="scroll" direction="left" id="dynamicTitle"></marquee>
+    <textarea id="titleInput" placeholder="Nuevo texto"></textarea>
+    
+    <div id="buttonContainer">
+      <button onclick="cambiarTitulo()">Cambiar Texto</button>
+    </div>
+  </div>
+
+  <script>
+    // Cargar texto almacenado localmente al cargar la página
+    window.onload = function() {
+      var storedText = localStorage.getItem("dynamicText");
+      if (storedText) {
+        document.getElementById("dynamicTitle").innerText = storedText;
+      }
+    };
+
+    // Cambiar dinámicamente el texto y guardarlo localmente
+    function cambiarTitulo() {
+      var nuevoTexto = document.getElementById("titleInput").value;
+      if (nuevoTexto.trim() !== "") {
+        document.getElementById("dynamicTitle").innerText = nuevoTexto;
+        // Guardar el texto en el almacenamiento local
+        localStorage.setItem("dynamicText", nuevoTexto);
+      }
+    }
+  </script>
+</body>
+</html>
