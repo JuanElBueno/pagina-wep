@@ -12,28 +12,40 @@
       height: 100vh;
       margin: 0;
     }
-
-    #textoEntrada {
-      font-size: 24px; /* Ajusta el tamaño del texto según tus necesidades */
-      text-align: center;
-    }
-
-    #textoDeslizante {
+    #dynamicTitle {
       width: 100%; /* Opcional: para que el marquee ocupe todo el ancho disponible */
     }
+
   </style>
 </head>
 <body>
-  <input type="text" id="textoEntrada" placeholder="Nuevo título">
-  <!-- El elemento marquee para el texto deslizante -->
-  <marquee behavior="scroll" direction="left" id="textoDeslizante"></marquee>
+  <div class="container">
+    <marquee behavior="scroll" direction="left" id="dynamicTitle"></marquee>
+    <input type="text" id="titleInput" placeholder="Nuevo título">
+    
+    <div id="buttonContainer">
+      <button onclick="cambiarTitulo()">Cambiar Título</button>
+    </div>
+  </div>
 
   <script>
-      // JavaScript para obtener el texto ingresado y actualizar el elemento marquee
-      document.getElementById('textoEntrada').addEventListener('input', function() {
-          var texto = this.value;
-          document.getElementById('textoDeslizante').textContent = texto;
-      });
+    // Cargar título almacenado localmente al cargar la página
+    window.onload = function() {
+      var storedTitle = localStorage.getItem("dynamicTitle");
+      if (storedTitle) {
+        document.getElementById("dynamicTitle").innerText = storedTitle;
+      }
+    };
+
+    // Cambiar dinámicamente el título y guardarlo localmente
+    function cambiarTitulo() {
+      var nuevoTitulo = document.getElementById("titleInput").value;
+      if (nuevoTitulo.trim() !== "") {
+        document.getElementById("dynamicTitle").innerText = nuevoTitulo;
+        // Guardar el título en el almacenamiento local
+        localStorage.setItem("dynamicTitle", nuevoTitulo);
+      }
+    }
   </script>
 </body>
 </html>
