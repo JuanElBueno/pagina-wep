@@ -21,30 +21,19 @@
     #textoDeslizante {
       width: 100%; /* Opcional: para que el marquee ocupe todo el ancho disponible */
     }
-
-    #textoGuardado {
-      margin-top: 20px; /* Ajusta el espaciado según tus necesidades */
-      font-size: 18px; /* Ajusta el tamaño del texto según tus necesidades */
-    }
   </style>
 </head>
 <body>
-  <marquee behavior="scroll" direction="left" id="textoDeslizante"></marquee>
-  <input type="text" id="textoEntrada" placeholder="">
+  <input type="text" id="textoEntrada" placeholder="Nuevo título">
   <!-- El elemento marquee para el texto deslizante -->
-
-  <div id="textoGuardado"></div> <!-- Elemento para mostrar el texto guardado -->
+  <marquee behavior="scroll" direction="left" id="textoDeslizante"></marquee>
 
   <script>
-    // JavaScript para obtener el texto ingresado y actualizar el elemento marquee y el texto guardado
-    var textoGuardado = ''; // Variable para almacenar el texto deslizante
-
-    document.getElementById('textoEntrada').addEventListener('input', function() {
-        var texto = this.value;
-        textoGuardado = texto;
-        document.getElementById('textoDeslizante').textContent = texto;
-        document.getElementById('textoGuardado').textContent = "Texto guardado: " + texto;
-    });
+      // JavaScript para obtener el texto ingresado y actualizar el elemento marquee
+      document.getElementById('textoEntrada').addEventListener('input', function() {
+          var texto = this.value;
+          document.getElementById('textoDeslizante').textContent = texto;
+      });
   </script>
 </body>
 </html>
