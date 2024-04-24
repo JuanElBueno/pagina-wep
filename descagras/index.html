@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descarga de archivos</title>
-	<link rel="shortcut icon" href="icono.ico">
+    <link rel="shortcut icon" href="icono.ico">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +37,7 @@
         li {
             margin: 10px 0;
         }
-        a {
+        .boton1{
             display: block;
             padding: 10px 20px;
             background-color: #007bff;
@@ -46,20 +46,23 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        a:hover {
+        boton1:hover {
             background-color: #0056b3;
+        }
+        .juanelbueno {
+            color: #FF33F0; 
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Descarga de archivos</h1>
-		<p>Archivos creados por JuanElBueno</p>
+        <p>Archivos creados por <a href="https://github.com/JuanElBueno" class="juanelbueno">JuanElBueno</a></p>
         <p>Por favor, selecciona el archivo que deseas descargar:</p>
         <ul>
-            <li><a href="https://github.com/JuanElBueno/Command-Cmd/releases/download/2.15.3/Comandos.bat" download>Comandos.bat</a></li>
-            <li><a href="https://github.com/JuanElBueno/Mecha/releases/download/1.70/Servicios.bat" download>Servicios.bat (Mechas)</a></li>
-            <li><a href="https://github.com/JuanElBueno/Mecha/releases/download/1.70/Optimizaciones.y.Input.Delay.rar" download>Optimizaciones.y.Input.Delay.rar (Mechas)</a></li>
+            <li><a href="https://github.com/JuanElBueno/Command-Cmd/releases/download/2.15.3/Comandos.bat" class="boton1" download>Comandos.bat</a></li>
+            <li><a href="https://github.com/JuanElBueno/Mecha/releases/download/1.70/Servicios.bat" class="boton1" download>Servicios.bat (Mechas)</a></li>
+            <li><a href="https://github.com/JuanElBueno/Mecha/releases/download/1.70/Optimizaciones.y.Input.Delay.rar" class="boton1" download>Optimizaciones.y.Input.Delay.rar (Mechas)</a></li>
         </ul>
     </div>
 </body>
