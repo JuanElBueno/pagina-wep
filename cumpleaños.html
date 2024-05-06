@@ -75,7 +75,13 @@
         const segundos = Math.floor((tiempoRestante % (60 * 1000)) / 1000);
 
         // Actualiza el contador
-        document.getElementById('tiempo-restante').textContent = `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        const tiempoRestanteSpan = document.getElementById('tiempo-restante');
+        if (dias <= 20) {
+            tiempoRestanteSpan.style.fontSize = '40px';
+        } else {
+            tiempoRestanteSpan.style.fontSize = 'inherit';
+        }
+        tiempoRestanteSpan.textContent = `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
     }
 
     // Actualiza la barra y el contador cada segundo
