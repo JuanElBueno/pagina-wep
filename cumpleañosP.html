@@ -41,6 +41,16 @@
             margin-top: 10px;
             color: #333; /* Color de texto en blanco y negro */
         }
+        
+        #revelacion {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+        
+        #formulario {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -53,9 +63,21 @@
 
 <div id="contador">Faltan: <span id="tiempo-restante"></span></div>
 
+<div id="revelacion">Fecha de cumpleaños: <span id="dia">??</span>/<span id="mes">??</span>/<span id="anio">????</span></div>
+
+<div id="formulario">
+    <input type="text" id="inputDia" placeholder="Día (1-31)">
+    <input type="text" id="inputMes" placeholder="Mes (1-12)">
+    <input type="text" id="inputAnio" placeholder="Año (YYYY)">
+    <button onclick="adivinar()">Adivinar</button>
+</div>
+
 <script>
     // Configura la fecha de cumpleaños (Año, Mes-1, Día)
     let fechaCumpleanos = new Date(2024, 5, 25); // Mes-1 porque los meses comienzan desde 0
+    let diaRevelado = false;
+    let mesRevelado = false;
+    let anioRevelado = false;
 
     function actualizarBarra() {
         const fechaActual = new Date();
@@ -88,6 +110,32 @@
             tiempoRestanteSpan.style.fontSize = 'inherit';
         }
         tiempoRestanteSpan.textContent = `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+    }
+
+    function adivinar() {
+        const inputDia = document.getElementById('inputDia').value;
+        const inputMes = document.getElementById('inputMes').value;
+        const inputAnio = document.getElementById('inputAnio').value;
+        
+        if (!diaRevelado && inputDia == fechaCumpleanos.getDate()) {
+            document.getElementById('dia').textContent = inputDia.padStart(2, '0');
+            diaRevelado = true;
+        }
+        
+        if (!mesRevelado && inputMes == (fechaCumpleanos.getMonth() + 1)) {
+            document.getElementById('mes').textContent = inputMes.padStart(2, '0');
+            mesRevelado = true;
+        }
+        
+        if (!anioRevelado && inputAnio == fechaCumpleanos.getFullYear()) {
+            document.getElementById('anio').textContent = inputAnio;
+            anioRevelado = true;
+        }
+        
+        // Limpiar los campos de entrada después de adivinar
+        document.getElementById('inputDia').value = '';
+        document.getElementById('inputMes').value = '';
+        document.getElementById('inputAnio').value = '';
     }
 
     // Actualiza la barra y el contador cada segundo
