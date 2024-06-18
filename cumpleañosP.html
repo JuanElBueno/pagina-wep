@@ -8,16 +8,19 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 20px;
-            background-color: #f0f0f0; /* Fondo en blanco y negro */
+            background-color: #f0f0f0;
+            color: #333;
+            position: relative;
         }
 
         #barra {
             width: 100%;
-            background-color: #333; /* Color de fondo en blanco y negro */
+            background-color: #333;
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-top: 20px;
             overflow: hidden;
+            display: inline-block;
         }
 
         #progreso {
@@ -39,21 +42,40 @@
         #contador {
             font-size: 28px;
             margin-top: 10px;
-            color: #333; /* Color de texto en blanco y negro */
         }
         
         #revelacion {
             font-size: 20px;
             margin-top: 20px;
-            color: #333;
         }
         
         #formulario {
             margin-top: 20px;
         }
+
+        .inputField {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #themeToggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+
+<button id="themeToggle" onclick="toggleTheme()">Oscuro</button>
 
 <h2>Cuenta regresiva para mi cumpleaños</h2>
 
@@ -66,9 +88,9 @@
 <div id="revelacion">Fecha de cumpleaños actual: <span id="dia">??</span>/<span id="mes">??</span>/<span id="anio">????</span></div>
 
 <div id="formulario">
-    <input type="text" id="inputDia" placeholder="Día (1-31)">
-    <input type="text" id="inputMes" placeholder="Mes (1-12)">
-    <input type="text" id="inputAnio" placeholder="Año (YYYY)">
+    <input type="text" id="inputDia" class="inputField" placeholder="Día (1-31)">
+    <input type="text" id="inputMes" class="inputField" placeholder="Mes (1-12)">
+    <input type="text" id="inputAnio" class="inputField" placeholder="Año (YYYY)">
     <button onclick="adivinar()">Adivinar</button>
 </div>
 
@@ -136,6 +158,24 @@
         document.getElementById('inputDia').value = '';
         document.getElementById('inputMes').value = '';
         document.getElementById('inputAnio').value = '';
+    }
+
+    function toggleTheme() {
+        const body = document.body;
+        const themeToggleBtn = document.getElementById('themeToggle');
+        if (body.style.backgroundColor === 'white') {
+            body.style.backgroundColor = '#333';
+            body.style.color = 'white';
+            themeToggleBtn.textContent = 'Claro';
+            themeToggleBtn.style.backgroundColor = 'white';
+            themeToggleBtn.style.color = '#333';
+        } else {
+            body.style.backgroundColor = 'white';
+            body.style.color = '#333';
+            themeToggleBtn.textContent = 'Oscuro';
+            themeToggleBtn.style.backgroundColor = '#333';
+            themeToggleBtn.style.color = 'white';
+        }
     }
 
     // Actualiza la barra y el contador cada segundo
