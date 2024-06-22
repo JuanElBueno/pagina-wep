@@ -43,12 +43,12 @@
             font-size: 28px;
             margin-top: 10px;
         }
-        
+
         #revelacion {
             font-size: 20px;
             margin-top: 20px;
         }
-        
+
         #formulario {
             margin-top: 20px;
         }
@@ -60,10 +60,31 @@
             border: 1px solid #ccc;
         }
 
+        #botonAdivinar {
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #botonAdivinar:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        #botonAdivinar:active {
+            transform: scale(0.95);
+        }
+
         #themeToggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -71,14 +92,17 @@
             color: white;
             cursor: pointer;
         }
+
+        .fecha-cumple {
+            font-weight: bold;
+            color: #4caf50;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
 
-<button id="themeToggle" onclick="toggleTheme()">Oscuro</button>  
-
-<h2>Cuenta regresiva para mi cumpleaños</h2>
-
+<h2>Cuenta regresiva para mi cumpleaños  </h2>
 
 <div id="barra">
     <div id="progreso">0%</div>
@@ -86,14 +110,16 @@
 
 <div id="contador">Faltan: <span id="tiempo-restante"></span></div>
 
-<div id="revelacion">Fecha de cumpleaños actual: <span id="dia">??</span>/<span id="mes">??</span>/<span id="anio">????</span></div>
+<div id="revelacion">Fecha de cumpleaños actual: <span id="fecha-cumple" class="fecha-cumple">??/??/????</span></div>
 
 <div id="formulario">
     <input type="text" id="inputDia" class="inputField" placeholder="Día (1-31)">
     <input type="text" id="inputMes" class="inputField" placeholder="Mes (1-12)">
     <input type="text" id="inputAnio" class="inputField" placeholder="Año (YYYY)">
-    <button onclick="adivinar()">Adivinar</button>
+    <button id="botonAdivinar" onclick="adivinar()">Adivinar</button>
 </div>
+
+<button id="themeToggle" onclick="toggleTheme()">Oscuro</button>
 
 <script>
     // Configura la fecha de cumpleaños (Año, Mes-1, Día)
@@ -101,6 +127,7 @@
     let diaRevelado = false;
     let mesRevelado = false;
     let anioRevelado = false;
+    let intervalId = null;
 
     function actualizarBarra() {
         const fechaActual = new Date();
@@ -108,8 +135,20 @@
 
         // Si la fecha ha pasado, establece la nueva fecha de cumpleaños al próximo año
         if (tiempoRestante <= 0) {
-            fechaCumpleanos.setFullYear(fechaCumpleanos.getFullYear() + 1);
-            tiempoRestante = fechaCumpleanos - fechaActual;
+            if (fechaActual.getDate() === fechaCumpleanos.getDate() &&
+                fechaActual.getMonth() === fechaCumpleanos.getMonth() &&
+                fechaActual.getFullYear() === fechaCumpleanos.getFullYear()) {
+                // Detiene la cuenta regresiva si es el día del cumpleaños
+                clearInterval(intervalId);
+                document.getElementById('contador').innerHTML = "¡Feliz Cumpleaños!";
+                document.getElementById('progreso').style.width = '100%';
+                document.getElementById('progreso').textContent = '100%';
+                return;
+            } else {
+                // Reinicia la cuenta regresiva al día siguiente
+                fechaCumpleanos.setFullYear(fechaCumpleanos.getFullYear() + 1);
+                tiempoRestante = fechaCumpleanos - fechaActual;
+            }
         }
 
         // Calcula el progreso
@@ -125,13 +164,16 @@
         const minutos = Math.floor((tiempoRestante % (60 * 60 * 1000)) / (60 * 1000));
         const segundos = Math.floor((tiempoRestante % (60 * 1000)) / 1000);
 
+        // Calcula el tamaño de la fuente basado en los días restantes
+        const maxFontSize = 70;
+        const minFontSize = 28;
+        const fontSize = dias <= 20 
+            ? minFontSize + ((maxFontSize - minFontSize) * (20 - dias) / 20)
+            : minFontSize;
+
         // Actualiza el contador
         const tiempoRestanteSpan = document.getElementById('tiempo-restante');
-        if (dias <= 20) {
-            tiempoRestanteSpan.style.fontSize = '40px';
-        } else {
-            tiempoRestanteSpan.style.fontSize = 'inherit';
-        }
+        tiempoRestanteSpan.style.fontSize = `${fontSize}px`;
         tiempoRestanteSpan.textContent = `${dias} días, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
     }
 
@@ -139,22 +181,22 @@
         const inputDia = document.getElementById('inputDia').value;
         const inputMes = document.getElementById('inputMes').value;
         const inputAnio = document.getElementById('inputAnio').value;
-        
+
         if (!diaRevelado && inputDia == fechaCumpleanos.getDate()) {
-            document.getElementById('dia').textContent = inputDia.padStart(2, '0');
+            document.getElementById('fecha-cumple').textContent = `${inputDia.padStart(2, '0')}/${document.getElementById('fecha-cumple').textContent.split('/')[1]}`;
             diaRevelado = true;
         }
-        
+
         if (!mesRevelado && inputMes == (fechaCumpleanos.getMonth() + 1)) {
-            document.getElementById('mes').textContent = inputMes.padStart(2, '0');
+            document.getElementById('fecha-cumple').textContent = `${document.getElementById('fecha-cumple').textContent.split('/')[0]}/${inputMes.padStart(2, '0')}`;
             mesRevelado = true;
         }
-        
+
         if (!anioRevelado && inputAnio == fechaCumpleanos.getFullYear()) {
-            document.getElementById('anio').textContent = inputAnio;
+            document.getElementById('fecha-cumple').textContent = `${document.getElementById('fecha-cumple').textContent.split('/')[0]}/${document.getElementById('fecha-cumple').textContent.split('/')[1]}/${inputAnio}`;
             anioRevelado = true;
         }
-        
+
         // Limpiar los campos de entrada después de adivinar
         document.getElementById('inputDia').value = '';
         document.getElementById('inputMes').value = '';
@@ -190,7 +232,7 @@
     document.getElementById('inputAnio').addEventListener('keypress', handleKeyPress);
 
     // Actualiza la barra y el contador cada segundo
-    setInterval(actualizarBarra, 1000);
+    intervalId = setInterval(actualizarBarra, 1000);
 
     // Llama a la función una vez para configurar la barra y el contador al cargar la página
     actualizarBarra();
