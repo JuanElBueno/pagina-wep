@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset=utf-8/>
+  <meta charset="utf-8"/>
   <title>Me cago en todo</title>
   <link rel="shortcut icon" href="icono_pagina.ico">
-</head>
-</head>
-  <link rel="stylesheet" href="Estilonuevo.css">
+  <style>
+    /* General styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        color: #333;
+    }
+
+    /* Header styling */
+    h1.Pag {
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Navbar styling */
+    ul.navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        background-color: #34495e;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 1111px;
+    }
+
+    ul.navbar li {
+        float: left;
+        width: 100%; /* For mobile first design */
+    }
+
+    ul.navbar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: background-color 0.3s;
+    }
+
+    /* Hover effect */
+    ul.navbar li a:hover {
+        background-color: #1abc9c;
+    }
+
+    /* For larger screens, make the navbar horizontal */
+    @media (min-width: 600px) {
+        ul.navbar li {
+            width: auto;
+        }
+    }
+  </style>
 </head>
 
 <body>
-<ul class="navbar">
-  <h1 clas="Pag">Pagina principal</h1>
-  <li><a href="probando.html">Video de minecraft</a> 
-  <li><a href="El tiempo de descarga.html"> El tiempo de descarga </a> 
-  <li><a href="Tres en raya/index.html"> Tres en raya </a> 
-  <li><a href="cumpleaños.html"> Cuanto me queda para mi cumpleanos </a>
-  <!-- <li><a href="probando/"> Cuanto me queda para mi cumpleanos </a>
-  <li><a href="version movil/"> Cuanto me queda para mi cumpleanos version movil </a> --> 
-  <li><a href="Time.html"> Hora 12h</a>
-  <li><a href="Time24.html"> Hora 24h</a>
+  <h1 class="Pag">Pagina principal</h1>
+  <ul class="navbar">
+    <li><a href="probando.html">Video de minecraft</a></li>
+    <li><a href="El tiempo de descarga.html">El tiempo de descarga</a></li>
+    <li><a href="Tres en raya/index.html">Tres en raya</a></li>
+    <li><a href="cumpleaños.html">Cuanto me queda para mi cumpleaños</a></li>
+    <!-- <li><a href="probando/">Cuanto me queda para mi cumpleaños</a></li>
+    <li><a href="version movil/">Cuanto me queda para mi cumpleaños versión móvil</a></li> -->
+    <li><a href="Time.html">Hora 12h</a></li>
+    <li><a href="Time24.html">Hora 24h</a></li>
   </ul>
+</body>
+</html>
